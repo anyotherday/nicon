@@ -51,7 +51,7 @@ export async function GET(request: Request) {
               margin: 0,
             }}
           >
-            alana goyal
+            nico nezhat
           </p>
           <p
             style={{
