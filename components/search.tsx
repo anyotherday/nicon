@@ -26,7 +26,7 @@ export default function SearchBar({
 }: SearchBarProps) {
   const handleSearch = (query: string) => {
     setSearchQuery(query);
-    if (query.trim() === '') {
+    if (query.trim() === "") {
       clearSearch();
       return;
     }
@@ -43,19 +43,21 @@ export default function SearchBar({
   };
 
   return (
-    <div className="relative">
-      <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-      <Input
-        id="search"
-        type="text"
-        value={searchQuery}
-        onChange={(e) => handleSearch(e.target.value)}
-        placeholder="Search"
-        className="w-full pl-8 pr-2 rounded-md text-base sm:text-sm placeholder:text-gray-400"
-        aria-label="Search notes"
-        autoComplete="off"
-        ref={inputRef}
-      />
+    <div className="pt-2 px-2">
+      <div className="relative">
+        <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-4000 h-4 w-4" />
+        <Input
+          id="search"
+          type="text"
+          value={searchQuery}
+          onChange={(e) => handleSearch(e.target.value)}
+          placeholder="Search"
+          className="w-full pl-8 pr-2 rounded-md text-base sm:text-sm placeholder:text-gray-400"
+          aria-label="Search notes"
+          autoComplete="off"
+          ref={inputRef}
+        />
+      </div>
     </div>
   );
 }

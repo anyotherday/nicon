@@ -1,6 +1,6 @@
 import Note from "@/components/note";
 import { createClient as createBrowserClient } from "@/utils/supabase/client";
-import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
 import { Metadata } from "next";
 import { Note as NoteType } from "@/lib/types";
 
@@ -59,27 +59,11 @@ export default async function NotePage({
   }).single();
 
   if (!note) {
-    if (slug.startsWith("new-note-")) {
-      const newNote = {
-        id: slug.replace("new-note-", ""),
-        slug: slug,
-        title: "",
-        content: "",
-        emoji: "👋🏼",
-        category: "today",
-        public: false,
-      };
-      return (
-        <div className="w-full min-h-screen p-3">
-          <Note note={newNote} />
-        </div>
-      );
-    }
-    notFound();
+    redirect("/error");
   }
 
   return (
-    <div className="w-full min-h-screen p-3">
+    <div className="w-full min-h-dvh p-3">
       <Note note={note} />
     </div>
   );
