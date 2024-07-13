@@ -5,7 +5,7 @@ import { Metadata } from "next";
 import { Note as NoteType } from "@/lib/types";
 
 export const dynamic = "error";
-export const revalidate = 3600;
+export const revalidate = 1800;
 
 export async function generateMetadata({
   params,
