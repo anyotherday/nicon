@@ -1,4 +1,3 @@
-import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
@@ -34,7 +33,6 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <Analytics />  {/* This activates Vercel Analytics */}
       <head>
         <title>{siteConfig.title}</title>
         <meta property="twitter:card" content="summary_large_image"></meta>
