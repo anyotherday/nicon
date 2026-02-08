@@ -71,9 +71,9 @@ export function SidebarContent({
   );
 
   return (
-    <div className="px-2">
-      <div className="flex py-2 items-center justify-between">
-        <h2 className={`pl-2 font-bold ${isMobile ? 'text-2xl' : 'text-xl'}`}>Notes</h2>
+    <div className="px-3">
+      <div className="flex py-3 items-center justify-between">
+        <h2 className={`pl-1 font-semibold tracking-tight ${isMobile ? 'text-2xl' : 'text-lg'}`}>Notes</h2>
         <NewNote
           addNewPinnedNote={addNewPinnedNote}
           clearSearch={clearSearch}
@@ -86,11 +86,11 @@ export function SidebarContent({
           {categoryOrder.map((categoryKey) =>
             groupedNotes[categoryKey] &&
             groupedNotes[categoryKey].length > 0 ? (
-              <section key={categoryKey}>
-                <h3 className="py-1 text-xs font-bold text-gray-400 ml-2">
+              <section key={categoryKey} className="mb-1">
+                <h3 className="py-2 text-[11px] font-medium uppercase tracking-wider text-[#636366] ml-1">
                   {labels[categoryKey as keyof typeof labels]}
                 </h3>
-                <ul className="space-y-2">
+                <ul className="space-y-0.5">
                   {groupedNotes[categoryKey].map(
                     (item: Note, index: number) => (
                       <NoteItem
@@ -116,7 +116,7 @@ export function SidebarContent({
           )}
         </nav>
       ) : localSearchResults.length > 0 ? (
-        <ul className="space-y-2">
+        <ul className="space-y-0.5">
           {localSearchResults.map((item: Note, index: number) => (
             <NoteItem
               key={item.id}
@@ -136,7 +136,7 @@ export function SidebarContent({
           ))}
         </ul>
       ) : (
-        <p className="text-sm text-gray-400 px-2 mt-4">No results found</p>
+        <p className="text-sm text-[#636366] px-2 mt-4">No results found</p>
       )}
     </div>
   );

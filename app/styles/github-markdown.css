@@ -3,23 +3,26 @@
   min-width: 200px;
   max-width: 980px;
   margin-left: 0;
-  line-height: 1.5; 
+  line-height: 1.7;
+  color: #EDEDEF;
 }
 
 .markdown-body h1 {
   font-size: 2em;
-  margin-top: 24px;
+  margin-top: 32px;
   margin-bottom: 16px;
   font-weight: 600;
   line-height: 1.25;
+  letter-spacing: -0.025em;
 }
 
 .markdown-body h2 {
   font-size: 1.5em;
-  margin-top: 24px;
+  margin-top: 28px;
   margin-bottom: 16px;
   font-weight: 600;
   line-height: 1.25;
+  letter-spacing: -0.02em;
 }
 
 .markdown-body h3 {
@@ -28,6 +31,7 @@
   margin-bottom: 16px;
   font-weight: 600;
   line-height: 1.25;
+  letter-spacing: -0.015em;
 }
 
 .markdown-body h4,
@@ -45,11 +49,13 @@
 }
 
 .markdown-body a {
-  color: #e2a727; 
+  color: #8B8BF5;
   text-decoration: none;
+  transition: color 0.15s ease;
 }
 
 .markdown-body a:hover {
+  color: #A5A5FF;
   text-decoration: underline;
 }
 
@@ -75,23 +81,24 @@
   appearance: none;
   width: 1.2em;
   height: 1.2em;
-  border: 1px solid #6a737d;
-  border-radius: 50%; 
+  border: 1.5px solid #3A3A44;
+  border-radius: 50%;
   vertical-align: top;
   position: relative;
   top: 0.2em;
-  cursor: pointer; 
+  cursor: pointer;
+  transition: all 0.15s ease;
 }
 
 .markdown-body .task-list-item input[type="checkbox"]:checked {
-  background-color: #e2a727;
-  border-color: #e2a727;
+  background-color: #8B8BF5;
+  border-color: #8B8BF5;
 }
 
 .markdown-body .task-list-item input[type="checkbox"]:checked::after {
-  content: '\2713'; 
+  content: '\2713';
   font-size: 1em;
-  color: #1c1c1c;
+  color: #0C0C0E;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -110,20 +117,57 @@
 
 .markdown-body blockquote {
   padding: 0 1em;
-  color: #6a737d;
-  border-left: 0.25em solid #dfe2e5;
+  color: #8E8E93;
+  border-left: 3px solid #2A2A30;
 }
 
 .markdown-body code {
-  background-color: #f6f8fa;
-  border-radius: 3px;
+  background-color: #1A1A1F;
+  border-radius: 6px;
   padding: 0.2em 0.4em;
   font-size: 85%;
+  color: #C8C8CC;
+  border: 1px solid #2A2A30;
 }
 
 .markdown-body pre {
-  background-color: #f6f8fa;
+  background-color: #1A1A1F;
   padding: 16px;
   overflow: auto;
-  border-radius: 3px;
+  border-radius: 8px;
+  border: 1px solid #2A2A30;
+}
+
+.markdown-body pre code {
+  border: none;
+  padding: 0;
+  background: none;
+}
+
+.markdown-body hr {
+  border: none;
+  border-top: 1px solid #2A2A30;
+  margin: 24px 0;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 8px 12px;
+  border: 1px solid #2A2A30;
+}
+
+.markdown-body table th {
+  background-color: #1A1A1F;
+  font-weight: 600;
 }

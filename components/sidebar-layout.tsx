@@ -35,14 +35,14 @@ export default function SidebarLayout({ children, notes }: SidebarLayoutProps) {
 
   return (
     <SessionNotesProvider>
-      <div className="bg-[#1c1c1c] text-white min-h-dvh flex">
+      <div className="bg-[#0C0C0E] text-[#EDEDEF] min-h-dvh flex">
         {showSidebar && (
           <div
             className={`${
               isMobile
                 ? "w-full"
-                : "w-64 flex-shrink-0 border-r border-gray-400/20"
-            } overflow-y-auto h-dvh`}
+                : "w-72 flex-shrink-0 border-r border-[#1E1E24]"
+            } overflow-y-auto h-dvh bg-[#0F0F12]`}
           >
             <Sidebar
               notes={notes}

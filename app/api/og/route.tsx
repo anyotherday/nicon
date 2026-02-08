@@ -20,21 +20,9 @@ export async function GET(request: Request) {
           height: "100%",
           position: "relative",
           fontFamily: "sans-serif",
+          backgroundColor: "#0C0C0E",
         }}
       >
-        <img
-          width="1200"
-          height="630"
-          src="https://base-case-images.s3.us-west-1.amazonaws.com/og-blank.png"
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-          }}
-        />
         <div
           style={{
             display: "flex",
@@ -47,8 +35,9 @@ export async function GET(request: Request) {
             style={{
               fontSize: 60,
               fontWeight: "bold",
-              color: "white",
+              color: "#EDEDEF",
               margin: 0,
+              letterSpacing: "-0.03em",
             }}
           >
             nico nezhat
@@ -56,10 +45,10 @@ export async function GET(request: Request) {
           <p
             style={{
               fontSize: 36,
-              color: "#96959B",
+              color: "#636366",
               margin: 0,
               marginTop: 10,
-              maxWidth: 1000, 
+              maxWidth: 1000,
               overflow: "hidden",
               textOverflow: "ellipsis",
               whiteSpace: "nowrap",
@@ -68,6 +57,16 @@ export async function GET(request: Request) {
             {emoji} {truncatedTitle}
           </p>
         </div>
+        <div
+          style={{
+            position: "absolute",
+            bottom: 40,
+            left: 0,
+            right: 0,
+            height: 2,
+            background: "linear-gradient(90deg, transparent 0%, #8B8BF5 50%, transparent 100%)",
+          }}
+        />
       </div>
     ),
     {

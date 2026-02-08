@@ -72,12 +72,12 @@ export default function NoteContent({
   }, [canEdit, handleMarkdownCheckboxChange]);
 
   return (
-    <div className="px-2">
+    <div className="px-4">
       {(isEditing && canEdit) || (!note.content && canEdit) ? (
         <Textarea
           id="note-content"
           value={note.content || ""}
-          className="bg-[#1c1c1c] min-h-dvh focus:outline-none leading-normal"
+          className="bg-transparent min-h-dvh focus:outline-none leading-relaxed border-none text-[#EDEDEF]"
           placeholder="Start writing..."
           onChange={handleChange}
           onFocus={() => setIsEditing(true)}
@@ -85,7 +85,7 @@ export default function NoteContent({
         />
       ) : (
         <div
-          className="bg-[#1c1c1c] h-full text-sm"
+          className="h-full text-sm"
           onClick={(e) => {
             if (canEdit && !note.public) {
               setIsEditing(true);

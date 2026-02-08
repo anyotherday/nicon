@@ -15,7 +15,7 @@ import { Dispatch, SetStateAction } from "react";
 function previewContent(content: string): string {
   return content
     .replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1')
-    .replace(/\[[ x]\]/g, '') 
+    .replace(/\[[ x]\]/g, '')
     .replace(/[#*_~`>+\-]/g, '')
     .replace(/\n+/g, ' ')
     .replace(/\s+/g, ' ')
@@ -54,6 +54,10 @@ export function NoteItem({
   const isMobile = useMobileDetect();
   const [isSwiping, setIsSwiping] = useState(false);
   const isSwipeOpen = openSwipeItemSlug === item.slug;
+
+  const isSelected =
+    (!isMobile && isSearching && isHighlighted) ||
+    (!isSearching && item.slug === selectedNoteSlug);
 
   useEffect(() => {
     const preventDefault = (e: TouchEvent) => {
@@ -100,27 +104,23 @@ export function NoteItem({
 
   const NoteContent = (
     <li
-      className={`min-h-[50px] ${
-        (!isMobile && isSearching && isHighlighted) ||
-        (!isSearching && item.slug === selectedNoteSlug)
-          ? "bg-[#9D7D28] rounded-md"
-          : ""
+      className={`min-h-[48px] rounded-lg transition-colors duration-150 ${
+        isSelected
+          ? "bg-[#1A1A2E] border-l-2 border-l-[#8B8BF5]"
+          : "hover:bg-[#16161A] border-l-2 border-l-transparent"
       }`}
       onClick={handleNoteClick}
     >
-      <Link href={`/${item.slug || ""}`} prefetch={true} className="block py-2">
-        <h2 className="text-sm font-bold pl-4 pr-4 break-words">
+      <Link href={`/${item.slug || ""}`} prefetch={true} className="block py-2.5 px-3">
+        <h2 className="text-sm font-medium tracking-tight break-words">
           {item.emoji} {item.title}
         </h2>
         <p
-          className={`text-xs pl-4 pr-4 overflow-hidden text-ellipsis whitespace-nowrap ${
-            (!isMobile && isSearching && isHighlighted) ||
-            (!isSearching && item.slug === selectedNoteSlug)
-              ? "text-gray-300"
-              : "text-gray-400"
+          className={`text-xs mt-0.5 overflow-hidden text-ellipsis whitespace-nowrap ${
+            isSelected ? "text-[#9E9EA8]" : "text-[#636366]"
           }`}
         >
-          <span className="text-white">
+          <span className={isSelected ? "text-[#C8C8CC]" : "text-[#8E8E93]"}>
             {new Date(item.created_at).toLocaleDateString("en-US")}
           </span>{" "}
           {previewContent(item.content)}

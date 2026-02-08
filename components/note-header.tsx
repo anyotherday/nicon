@@ -50,17 +50,17 @@ export default function NoteHeader({
     <>
       {isMobile && pathname !== "/" && (
         <Link href="/">
-          <button className="pt-2 flex items-center">
-            <ChevronLeft className="w-5 h-5 text-[#e2a727]" />
-            <span className="text-[#e2a727] text-base ml-1">Notes</span>
+          <button className="pt-3 flex items-center group">
+            <ChevronLeft className="w-5 h-5 text-[#8B8BF5] transition-transform group-hover:-translate-x-0.5" />
+            <span className="text-[#8B8BF5] text-sm font-medium ml-0.5">Notes</span>
           </button>
         </Link>
       )}
-      <div className="px-2 bg-[#1c1c1c] mb-4 relative">
-        <div className="flex justify-center items-center">
-          <p className="text-gray-400 text-xs">{formattedDate}</p>
+      <div className="px-4 mb-6 relative">
+        <div className="flex justify-center items-center mb-4">
+          <p className="text-[#636366] text-xs font-medium tracking-wide">{formattedDate}</p>
           {!note.public && (
-            <Badge className="text-xs justify-center items-center ml-2">
+            <Badge className="text-[10px] justify-center items-center ml-2 bg-[#1A1A2E] text-[#8B8BF5] border-[#2A2A40] hover:bg-[#1A1A2E]">
               <Lock className="w-3 h-3 mr-1" />
               Private
             </Badge>
@@ -72,27 +72,27 @@ export default function NoteHeader({
               <Tooltip>
                 <TooltipTrigger
                   onClick={() => setShowEmojiPicker(!showEmojiPicker)}
-                  className="cursor-pointer mr-2"
+                  className="cursor-pointer mr-2 text-2xl hover:scale-110 transition-transform"
                 >
                   {note.emoji}
                 </TooltipTrigger>
-                <TooltipContent className="bg-[#1c1c1c] text-gray-400 border-none">
+                <TooltipContent className="bg-[#1A1A1F] text-[#8E8E93] border-[#2A2A30]">
                   Select an emoji
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
           ) : (
-            <span className="mr-2">{note.emoji}</span>
+            <span className="mr-2 text-2xl">{note.emoji}</span>
           )}
           {note.public || !canEdit ? (
-            <span className="text-2xl font-bold flex-grow py-2 leading-normal min-h-[50px]">
+            <span className="text-2xl font-semibold tracking-tight flex-grow py-2 leading-normal min-h-[50px]">
               {note.title}
             </span>
           ) : (
             <Input
               id="title"
               value={note.title}
-              className="placeholder:text-gray-400 text-2xl font-bold flex-grow py-2 leading-normal min-h-[50px]"
+              className="placeholder:text-[#636366] text-2xl font-semibold tracking-tight flex-grow py-2 leading-normal min-h-[50px] bg-transparent border-none"
               placeholder="Your title here..."
               onChange={handleTitleChange}
               autoFocus={!note.title}

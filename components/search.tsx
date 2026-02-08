@@ -43,16 +43,16 @@ export default function SearchBar({
   };
 
   return (
-    <div className="pt-2 px-2">
+    <div className="pt-3 px-3">
       <div className="relative">
-        <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-4000 h-4 w-4" />
+        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#636366] h-3.5 w-3.5" />
         <Input
           id="search"
           type="text"
           value={searchQuery}
           onChange={(e) => handleSearch(e.target.value)}
           placeholder="Search"
-          className="w-full pl-8 pr-2 rounded-md text-base sm:text-sm placeholder:text-gray-400"
+          className="w-full pl-9 pr-3 rounded-lg text-sm placeholder:text-[#636366] bg-[#1A1A1F] border-[#2A2A30] focus:border-[#8B8BF5] transition-colors"
           aria-label="Search notes"
           autoComplete="off"
           ref={inputRef}
